@@ -1,14 +1,16 @@
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-import styles from './app.module.css';
-import NxWelcome from './nx-welcome';
+import { BrowserRouter } from 'react-router-dom'
+import { AppRoutes } from './app-routes'
+import { AppShell } from './app-shell'
+import { AuthProvider } from './auth/data-access'
 
 export function App() {
   return (
-    <>
-      <NxWelcome title="mantine-admin-starter" />
-      <div />
-    </>
-  );
+    <BrowserRouter>
+      <AppShell>
+        <AuthProvider>
+          <AppRoutes />
+        </AuthProvider>
+      </AppShell>
+    </BrowserRouter>
+  )
 }
-
-export default App;

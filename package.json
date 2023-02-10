@@ -9,8 +9,21 @@
   },
   "private": true,
   "dependencies": {
+    "@emotion/react": "^11.10.5",
+    "@mantine/core": "^5.10.3",
+    "@mantine/dates": "^5.10.3",
+    "@mantine/form": "^5.10.3",
+    "@mantine/hooks": "^5.10.3",
+    "@mantine/modals": "^5.10.3",
+    "@mantine/notifications": "^5.10.3",
+    "@mantine/prism": "^5.10.3",
+    "@mantine/styles": "^5.10.3",
+    "@tabler/icons": "^2.3.0",
+    "@tabler/icons-react": "^2.3.0",
+    "mantine-datatable": "^1.8.2",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "react-router-dom": "^6.8.1"
   },
   "devDependencies": {
     "@nrwl/cypress": "15.6.3",
