@@ -11,6 +11,11 @@ export default defineConfig({
     host: 'localhost',
   },
 
+  define: {
+    'process.env': {},
+    global: 'window',
+  },
+
   preview: {
     port: 4300,
     host: 'localhost',

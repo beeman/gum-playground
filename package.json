@@ -10,6 +10,7 @@
   "private": true,
   "dependencies": {
     "@emotion/react": "^11.10.5",
+    "@gumhq/react-sdk": "^1.0.6",
     "@mantine/core": "^5.10.3",
     "@mantine/dates": "^5.10.3",
     "@mantine/form": "^5.10.3",
@@ -18,6 +19,10 @@
     "@mantine/notifications": "^5.10.3",
     "@mantine/prism": "^5.10.3",
     "@mantine/styles": "^5.10.3",
+    "@solana/wallet-adapter-base": "^0.9.21",
+    "@solana/wallet-adapter-react-ui": "^0.9.28",
+    "@solana/wallet-adapter-wallets": "^0.19.12",
+    "@solana/web3.js": "^1.73.2",
     "@tabler/icons": "^2.3.0",
     "@tabler/icons-react": "^2.3.0",
     "mantine-datatable": "^1.8.2",

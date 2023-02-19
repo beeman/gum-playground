@@ -1,9 +1,7 @@
 import { Anchor, Container, Stack, Text } from '@mantine/core'
+import React from 'react'
 import { Link, Navigate, Route, Routes, useParams } from 'react-router-dom'
-import { AdminFeature } from './admin/features/admin-feature'
-import { AuthFeature } from './auth/feature'
-import { AuthRoute } from './auth/ui/auth-route'
-import { DashboardFeature } from './dashboard/feature/dashboard-feature'
+import { GumFeature } from './gum/gum.feature'
 import { NotFoundFeature } from './not-found.feature'
 import { UiLayout } from './ui/layout'
 
@@ -11,16 +9,19 @@ export function AppRoutes() {
   return (
     <Routes>
       <Route index element={<Navigate replace to={'/dashboard'} />} />
-      <Route path="/login" element={<AuthFeature />} />
-      <Route element={<AuthRoute redirectTo="/login" />}>
-        <Route element={<UiLayout />}>
-          <Route path="/admin/*" element={<AdminFeature />} />
-          <Route path="/dashboard" element={<DashboardFeature />} />
-          <Route path="/demo/:path" element={<CatchAllFeature />} />
-          <Route path="/demo/:path/:sub" element={<CatchAllFeature />} />
-        </Route>
+      <Route element={<UiLayout />}>
+        <Route
+          path="/dashboard"
+          element={
+            <Container my="md">
+              <GumFeature />
+            </Container>
+          }
+        />
+        <Route path="/demo/:path" element={<CatchAllFeature />} />
+        <Route path="/demo/:path/:sub" element={<CatchAllFeature />} />
+        <Route path="*" element={<NotFoundFeature />} />
       </Route>
-      <Route path="*" element={<NotFoundFeature />} />
     </Routes>
   )
 }
