@@ -1,17 +1,6 @@
-import { SDK, useGum } from '@gumhq/react-sdk'
-import { AnchorWallet, useAnchorWallet } from '@solana/wallet-adapter-react'
-import { Cluster, ConfirmOptions, Connection, PublicKey } from '@solana/web3.js'
-import { GumOwnerData, GumSDKUser } from './gum-interfaces'
-
-export * from './gum-interfaces'
-
-export const useGumSDK = (connection: Connection, opts: ConfirmOptions, cluster: Cluster) => {
-  const anchorWallet = useAnchorWallet() as AnchorWallet
-
-  const sdk = useGum(anchorWallet, connection, opts, cluster)
-
-  return sdk
-}
+import { SDK } from '@gumhq/react-sdk'
+import { PublicKey } from '@solana/web3.js'
+import { GumOwnerData, GumSDKUser, GumUser } from './gum-interfaces'
 
 export async function gumGetOwnerData(owner: PublicKey, sdk: SDK): Promise<GumOwnerData> {
   const [profileMetadataList, profilesList, usersList, postsList] = await Promise.all([
@@ -29,31 +18,7 @@ export async function gumGetOwnerData(owner: PublicKey, sdk: SDK): Promise<GumOw
   }
 }
 
-interface GumProfileMeta {
-  metadataUri: string
-  publicKey: PublicKey
-}
-
-interface GumPost {
-  metadataUri: string
-  publicKey: PublicKey
-  replyTo: PublicKey
-}
-
-interface GumProfile {
-  name: string
-  publicKey: PublicKey
-  metadata?: GumProfileMeta[]
-  posts?: GumPost[]
-}
-
-export interface GumUser {
-  owner: PublicKey
-  publicKey: PublicKey
-  profiles?: GumProfile[]
-}
-
-export function getStructuredData(account: GumOwnerData): GumUser[] {
+export function formatOwnerData(account: GumOwnerData): GumUser[] {
   return account?.usersList.map((user) => ({
     owner: user.account.authority,
     publicKey: user.publicKey,
@@ -66,7 +31,7 @@ export function getStructuredData(account: GumOwnerData): GumUser[] {
           .filter((metadata) => metadata?.account?.profile.equals(profile.publicKey))
           .map((item) => ({
             metadataUri: item.account.metadataUri,
-            publicKey: item.account.profile,
+            publicKey: item.publicKey,
           })),
         posts: account.postsList
           .filter((post) => post.account.profile.equals(profile.publicKey))

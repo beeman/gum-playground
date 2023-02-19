@@ -1569,6 +1569,13 @@
   dependencies:
     "@mantine/utils" "5.10.3"
 
+"@mantine/ds@^5.10.4":
+  version "5.10.4"
+  resolved "https://registry.yarnpkg.com/@mantine/ds/-/ds-5.10.4.tgz#838ffd472d1a3c33f0e58c65391cc13332d45189"
+  integrity sha512-nJy0uiN6bJ6Qa85GeK8dbAkwikIfq7dmqZ5i543dZCSin6wTFgOMQeFhg0MkIV7Ke4cPpnHEpj+KrQKRSZ2BnQ==
+  dependencies:
+    "@mantine/utils" "5.10.4"
+
 "@mantine/form@^5.10.3":
   version "5.10.3"
   resolved "https://registry.yarnpkg.com/@mantine/form/-/form-5.10.3.tgz#2bf931f6b8d5da2bd8690c4a4724b182b915a1f4"
@@ -1617,6 +1624,11 @@
   version "5.10.3"
   resolved "https://registry.yarnpkg.com/@mantine/utils/-/utils-5.10.3.tgz#724e5076812bffdb15a23859f23b9e78c1774239"
   integrity sha512-ZfR1wouA/rz3xTOb2wBnrQpIiyjLcCLLvbUo7rzaG3LhFy7UoGjZ6uqIW9qDrzs7SR4tETRfMxedYagjcoCiEg==
+
+"@mantine/utils@5.10.4":
+  version "5.10.4"
+  resolved "https://registry.yarnpkg.com/@mantine/utils/-/utils-5.10.4.tgz#2160888000eacd05bed6072cb7282646fdb2abbb"
+  integrity sha512-Xrx7Pk+GOwk/0P0qa/JEknZ5AzUBRnD+Ghz1Wu3z4w32NwsNSgq/8YvFVhvxAP7FMbi7Z5xicHzHmhXy1BvZrw==
 
 "@ngraveio/bc-ur@^1.0.0", "@ngraveio/bc-ur@^1.1.5":
   version "1.1.6"

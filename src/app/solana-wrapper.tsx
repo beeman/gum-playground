@@ -27,7 +27,6 @@ export function SolanaProvider({
       new SolflareWalletAdapter({ network }),
       new PhantomWalletAdapter({ network }),
     ],
-    // eslint-disable-next-line react-hooks/exhaustive-deps
     [network],
   )
 

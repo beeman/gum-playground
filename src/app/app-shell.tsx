@@ -29,7 +29,7 @@ export function AppShell({ children }: { children: ReactNode }) {
         theme={{
           colorScheme,
           colors: {
-            brand: DEFAULT_THEME.colors.blue,
+            brand: DEFAULT_THEME.colors.grape,
           },
           loader: 'dots',
           primaryColor: 'brand',

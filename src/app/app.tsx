@@ -1,4 +1,5 @@
 import { WalletAdapterNetwork } from '@solana/wallet-adapter-base'
+import { clusterApiUrl } from '@solana/web3.js'
 import { BrowserRouter } from 'react-router-dom'
 import { AppRoutes } from './app-routes'
 import { AppShell } from './app-shell'
@@ -8,10 +9,7 @@ export function App() {
   return (
     <BrowserRouter>
       <AppShell>
-        <SolanaProvider
-          network={WalletAdapterNetwork.Devnet}
-          endpoint={'https://rpc-devnet.helius.xyz/?api-key=2a88ca2b-67c0-44c7-b2b6-1f7851af671f'}
-        >
+        <SolanaProvider network={WalletAdapterNetwork.Devnet} endpoint={clusterApiUrl('devnet')}>
           <AppRoutes />
         </SolanaProvider>
       </AppShell>

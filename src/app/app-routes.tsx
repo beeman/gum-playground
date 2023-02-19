@@ -1,42 +1,31 @@
-import { Anchor, Container, Stack, Text } from '@mantine/core'
+import { Box, Container, Group, Paper, Stack } from '@mantine/core'
 import React from 'react'
-import { Link, Navigate, Route, Routes, useParams } from 'react-router-dom'
+import { Link, Route, Routes } from 'react-router-dom'
 import { GumFeature } from './gum/gum.feature'
 import { NotFoundFeature } from './not-found.feature'
-import { UiLayout } from './ui/layout'
+import { GumLogo } from './ui/gum-logo'
+import { UiThemeToggle } from './ui/layout/ui-theme-toggle'
+import { WalletMultiButton } from './ui/wallet-adapter-mantine-ui/wallet-multi-button'
 
 export function AppRoutes() {
   return (
-    <Routes>
-      <Route index element={<Navigate replace to={'/dashboard'} />} />
-      <Route element={<UiLayout />}>
-        <Route
-          path="/dashboard"
-          element={
-            <Container my="md">
-              <GumFeature />
-            </Container>
-          }
-        />
-        <Route path="/demo/:path" element={<CatchAllFeature />} />
-        <Route path="/demo/:path/:sub" element={<CatchAllFeature />} />
-        <Route path="*" element={<NotFoundFeature />} />
-      </Route>
-    </Routes>
-  )
-}
-
-export function CatchAllFeature() {
-  const { path, sub } = useParams()
-  return (
     <Container my="md">
-      <Stack>
-        <Text size="xl">
-          You are at {path} {sub ? ` - ${sub}` : null}
-        </Text>
-        <Anchor component={Link} to="/" color="brand">
-          Click here to go back to root page.
-        </Anchor>
+      <Stack mt={64}>
+        <Paper withBorder sx={{ borderWidth: 4 }} radius="xl" p="xl">
+          <Group position="apart" align="center">
+            <Box component={Link} to="/" sx={{ height: 48 }}>
+              <GumLogo height={48} width={140} />
+            </Box>
+            <Group>
+              <WalletMultiButton />
+              <UiThemeToggle />
+            </Group>
+          </Group>
+        </Paper>
+        <Routes>
+          <Route index element={<GumFeature />} />
+          <Route path="*" element={<NotFoundFeature />} />
+        </Routes>
       </Stack>
     </Container>
   )
