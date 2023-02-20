@@ -22,11 +22,11 @@ export function GumApp() {
               loaderProps={{ variant: 'dots' }}
               color="brand"
               variant="filled"
-              size={48}
+              size="xl"
               radius="xl"
               onClick={refresh}
             >
-              <IconRefresh size={28} />
+              <IconRefresh size={24} />
             </ActionIcon>
           </Group>
         </Group>

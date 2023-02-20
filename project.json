@@ -1,5 +1,5 @@
 {
-  "name": "mantine-admin-starter",
+  "name": "gum-playground",
   "$schema": "node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "./src",
   "projectType": "application",
@@ -9,7 +9,7 @@
       "outputs": ["{options.outputPath}"],
       "defaultConfiguration": "production",
       "options": {
-        "outputPath": "dist/mantine-admin-starter"
+        "outputPath": "dist/gum-playground"
       },
       "configurations": {
         "development": {
@@ -24,15 +24,15 @@
       "executor": "@nrwl/vite:dev-server",
       "defaultConfiguration": "development",
       "options": {
-        "buildTarget": "mantine-admin-starter:build"
+        "buildTarget": "gum-playground:build"
       },
       "configurations": {
         "development": {
-          "buildTarget": "mantine-admin-starter:build:development",
+          "buildTarget": "gum-playground:build:development",
           "hmr": true
         },
         "production": {
-          "buildTarget": "mantine-admin-starter:build:production",
+          "buildTarget": "gum-playground:build:production",
           "hmr": false
         }
       }
@@ -41,23 +41,23 @@
       "executor": "@nrwl/vite:preview-server",
       "defaultConfiguration": "development",
       "options": {
-        "buildTarget": "mantine-admin-starter:build"
+        "buildTarget": "gum-playground:build"
       },
       "configurations": {
         "development": {
-          "buildTarget": "mantine-admin-starter:build:development"
+          "buildTarget": "gum-playground:build:development"
         },
         "production": {
-          "buildTarget": "mantine-admin-starter:build:production"
+          "buildTarget": "gum-playground:build:production"
         }
       }
     },
     "test": {
       "executor": "@nrwl/vite:test",
-      "outputs": ["coverage/mantine-admin-starter"],
+      "outputs": ["coverage/gum-playground"],
       "options": {
         "passWithNoTests": true,
-        "reportsDirectory": "coverage/mantine-admin-starter"
+        "reportsDirectory": "coverage/gum-playground"
       }
     },
     "lint": {

@@ -8,12 +8,12 @@
       "executor": "@nrwl/cypress:cypress",
       "options": {
         "cypressConfig": "e2e/cypress.config.ts",
-        "devServerTarget": "mantine-admin-starter:serve:development",
+        "devServerTarget": "gum-playground:serve:development",
         "testingType": "e2e"
       },
       "configurations": {
         "production": {
-          "devServerTarget": "mantine-admin-starter:serve:production"
+          "devServerTarget": "gum-playground:serve:production"
         }
       }
     },
@@ -26,5 +26,5 @@
     }
   },
   "tags": [],
-  "implicitDependencies": ["mantine-admin-starter"]
+  "implicitDependencies": ["gum-playground"]
 }

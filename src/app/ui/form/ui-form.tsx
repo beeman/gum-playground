@@ -26,7 +26,7 @@ export function UiForm<T>({
             case UiFormFieldType.Input:
               return (
                 <TextInput
-                  key={field.key}
+                  key={field.key.toString()}
                   label={field.label}
                   placeholder={field.placeholder ?? field.label}
                   required={field.required}
@@ -37,7 +37,7 @@ export function UiForm<T>({
             case UiFormFieldType.Checkbox:
               return (
                 <Checkbox
-                  key={field.key}
+                  key={field.key.toString()}
                   label={field.label}
                   required={field.required}
                   {...form.getInputProps(field.key)}
@@ -46,7 +46,7 @@ export function UiForm<T>({
             case UiFormFieldType.Select:
               return (
                 <Select
-                  key={field.key}
+                  key={field.key.toString()}
                   label={field.label}
                   placeholder={field.placeholder ?? field.label}
                   required={field.required}
@@ -57,7 +57,7 @@ export function UiForm<T>({
             case UiFormFieldType.Textarea:
               return (
                 <Textarea
-                  key={field.key}
+                  key={field.key.toString()}
                   label={field.label}
                   placeholder={field.placeholder ?? field.label}
                   required={field.required}

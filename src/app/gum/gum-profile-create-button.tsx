@@ -7,7 +7,7 @@ import { GumProfileTypeIcon } from './use-gum-app'
 export function GumProfileCreateButton({ onClick, type }: { onClick: () => void; type: Namespace }) {
   return (
     <Button
-      size="lg"
+      size="xl"
       radius="xl"
       variant="light"
       onClick={onClick}

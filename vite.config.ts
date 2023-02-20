@@ -1,10 +1,12 @@
 /// <reference types="vitest" />
-import { defineConfig } from 'vite'
+import { NodeGlobalsPolyfillPlugin } from '@esbuild-plugins/node-globals-polyfill'
 import react from '@vitejs/plugin-react'
+import rollupNodePolyFill from 'rollup-plugin-node-polyfills'
+import { defineConfig } from 'vite'
 import viteTsConfigPaths from 'vite-tsconfig-paths'
 
 export default defineConfig({
-  cacheDir: './node_modules/.vite/mantine-admin-starter',
+  cacheDir: './node_modules/.vite/gum-playground',
 
   server: {
     port: 4200,
@@ -36,6 +38,25 @@ export default defineConfig({
   //    }),
   //  ],
   // },
+  optimizeDeps: {
+    esbuildOptions: {
+      target: 'es2020',
+      define: {
+        global: 'globalThis',
+      },
+      plugins: [
+        NodeGlobalsPolyfillPlugin({
+          process: true,
+          buffer: true,
+        }),
+      ],
+    },
+  },
+  build: {
+    rollupOptions: {
+      plugins: [rollupNodePolyFill()],
+    },
+  },
 
   test: {
     globals: true,

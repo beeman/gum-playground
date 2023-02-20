@@ -1,5 +1,5 @@
 import { Adapter, WalletAdapterNetwork } from '@solana/wallet-adapter-base'
-import { ConnectionProvider, WalletProvider as SolanaWalletProvider } from '@solana/wallet-adapter-react'
+import { ConnectionProvider, WalletProvider } from '@solana/wallet-adapter-react'
 import { createContext, ReactNode, useContext } from 'react'
 import { WalletModalProvider } from './ui/wallet-adapter-mantine-ui/wallet-modal-provider'
 
@@ -29,9 +29,9 @@ export function SolanaProvider({
   return (
     <SolanaContext.Provider value={value}>
       <ConnectionProvider endpoint={endpoint}>
-        <SolanaWalletProvider wallets={wallets} autoConnect>
+        <WalletProvider wallets={wallets} autoConnect>
           <WalletModalProvider>{children}</WalletModalProvider>
-        </SolanaWalletProvider>
+        </WalletProvider>
       </ConnectionProvider>
     </SolanaContext.Provider>
   )

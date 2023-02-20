@@ -1,5 +1,5 @@
 {
-  "name": "mantine-admin-starter",
+  "name": "gum-playground",
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
@@ -10,6 +10,7 @@
   "private": true,
   "dependencies": {
     "@emotion/react": "^11.10.5",
+    "@esbuild-plugins/node-globals-polyfill": "^0.2.3",
     "@gumhq/react-sdk": "^1.0.6",
     "@mantine/core": "^5.10.3",
     "@mantine/dates": "^5.10.3",
@@ -29,7 +30,8 @@
     "mantine-datatable": "^1.8.2",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "react-router-dom": "^6.8.1"
+    "react-router-dom": "^6.8.1",
+    "rollup-plugin-node-polyfills": "^0.2.1"
   },
   "devDependencies": {
     "@nrwl/cypress": "15.6.3",

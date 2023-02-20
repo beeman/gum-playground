@@ -1,6 +1,6 @@
 {
   "$schema": "./node_modules/nx/schemas/nx-schema.json",
-  "npmScope": "mantine-admin-starter",
+  "npmScope": "gum-playground",
   "tasksRunnerOptions": {
     "default": {
       "runner": "@nrwl/nx-cloud",
@@ -52,5 +52,5 @@
       }
     }
   },
-  "defaultProject": "mantine-admin-starter"
+  "defaultProject": "gum-playground"
 }

@@ -84,7 +84,7 @@ export function WalletModal(props: WalletModalProps) {
             </Text>
           </Box>
 
-          <Stack mt="lg" spacing="lg">
+          <Stack mt="lg">
             {listedWallets.map((wallet) => (
               <Box key={wallet.adapter.name}>
                 <WalletListItem

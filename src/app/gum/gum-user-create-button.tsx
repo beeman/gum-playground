@@ -14,7 +14,7 @@ export function GumUserCreateButton() {
   }
 
   return (
-    <Button size="lg" radius="xl" loading={loading} onClick={() => create(owner).then(() => refresh())}>
+    <Button size="md" radius="xl" loading={loading} onClick={() => create(owner).then(() => refresh())}>
       Create User
     </Button>
   )
