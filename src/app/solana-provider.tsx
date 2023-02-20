@@ -1,8 +1,6 @@
-import { WalletAdapterNetwork } from '@solana/wallet-adapter-base'
+import { Adapter, WalletAdapterNetwork } from '@solana/wallet-adapter-base'
 import { ConnectionProvider, WalletProvider as SolanaWalletProvider } from '@solana/wallet-adapter-react'
-
-import { PhantomWalletAdapter, SolflareWalletAdapter } from '@solana/wallet-adapter-wallets'
-import { createContext, ReactNode, useContext, useMemo } from 'react'
+import { createContext, ReactNode, useContext } from 'react'
 import { WalletModalProvider } from './ui/wallet-adapter-mantine-ui/wallet-modal-provider'
 
 export interface SolanaProviderContext {
@@ -16,20 +14,13 @@ export function SolanaProvider({
   children,
   endpoint,
   network,
+  wallets = [],
 }: {
   children: ReactNode
   endpoint: string
   network: WalletAdapterNetwork
+  wallets?: Adapter[]
 }) {
-  const wallets = useMemo(
-    () => [
-      //
-      new SolflareWalletAdapter({ network }),
-      new PhantomWalletAdapter({ network }),
-    ],
-    [network],
-  )
-
   const value: SolanaProviderContext = {
     network,
     endpoint,

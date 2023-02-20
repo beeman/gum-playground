@@ -6,7 +6,7 @@ import { UiCard } from '../ui/ui-card'
 import { UiLoader } from '../ui/ui-loader'
 import { GumUserCreateButton } from './gum-user-create-button'
 import { GumUserItem } from './gum-user-item'
-import { useGumApp } from './lib/use-gum-app'
+import { useGumApp } from './use-gum-app'
 
 export function GumApp() {
   const { loading, users, refresh } = useGumApp()
@@ -17,7 +17,15 @@ export function GumApp() {
           <Title order={2}>Users</Title>
           <Group>
             <GumUserCreateButton />
-            <ActionIcon loading={loading} color="brand" variant="filled" size={48} radius="xl" onClick={refresh}>
+            <ActionIcon
+              loading={loading}
+              loaderProps={{ variant: 'dots' }}
+              color="brand"
+              variant="filled"
+              size={48}
+              radius="xl"
+              onClick={refresh}
+            >
               <IconRefresh size={28} />
             </ActionIcon>
           </Group>

@@ -1,7 +1,7 @@
 import { Anchor, AnchorProps, Flex } from '@mantine/core'
 import { WalletAdapterNetwork } from '@solana/wallet-adapter-base'
 import { PublicKey } from '@solana/web3.js'
-import { useSolana } from '../solana-wrapper'
+import { useSolana } from '../solana-provider'
 import { UiCopyButton } from './ui-copy.button'
 
 export function ellipsify(str = '', len = 4) {

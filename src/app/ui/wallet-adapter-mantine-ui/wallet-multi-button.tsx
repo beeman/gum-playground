@@ -13,7 +13,6 @@ export const WalletMultiButton: FC<WalletButtonProps> = ({ children, ...props })
   const { publicKey, wallet, disconnect } = useWallet()
   const { setVisible } = useWalletModal()
   const [copied, setCopied] = useState(false)
-  const [active, setActive] = useState(false)
   const ref = useRef<HTMLUListElement>(null)
 
   const base58 = useMemo(() => publicKey?.toBase58(), [publicKey])
@@ -58,14 +57,7 @@ export const WalletMultiButton: FC<WalletButtonProps> = ({ children, ...props })
   return (
     <Menu withArrow offset={3}>
       <Menu.Target>
-        <Button
-          size="md"
-          radius="xl"
-          aria-expanded={active}
-          sx={{ pointerEvents: active ? 'none' : 'auto' }}
-          leftIcon={<WalletIcon wallet={wallet} />}
-          {...props}
-        >
+        <Button size="md" variant="default" radius="xl" leftIcon={<WalletIcon wallet={wallet} />} {...props}>
           {content}
         </Button>
       </Menu.Target>

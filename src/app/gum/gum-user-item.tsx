@@ -4,7 +4,7 @@ import { UiDebugModal } from '../ui/ui-debug'
 import { LinkAccount } from '../ui/ui-link-explorer'
 import { GumProfileList } from './gum-profile-list'
 import { GumUserDeleteButton } from './gum-user-delete-button'
-import { GumUser } from './lib/gum-interfaces'
+import { GumUser } from './gum-interfaces'
 
 export function GumUserItem({ user }: { user: GumUser }) {
   return (

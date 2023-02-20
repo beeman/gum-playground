@@ -1,7 +1,7 @@
 import { Button } from '@mantine/core'
 import { PublicKey } from '@solana/web3.js'
 import React from 'react'
-import { useGumApp } from './lib/use-gum-app'
+import { useGumApp } from './use-gum-app'
 
 export function GumUserDeleteButton({ userAccount }: { userAccount: PublicKey }) {
   const loading = false

@@ -3,8 +3,8 @@ import React from 'react'
 import { showNotificationError, showNotificationSuccess } from '../ui/ui-notifications'
 import { GumProfileCard } from './gum-profile-card'
 import { GumProfileCreateButton } from './gum-profile-create-button'
-import { GumProfile, gumProfileTypes, GumUser, Namespace } from './lib/gum-interfaces'
-import { GumProfileTypeIcon, useGumApp } from './lib/use-gum-app'
+import { GumProfile, gumProfileTypes, GumUser, Namespace } from './gum-interfaces'
+import { GumProfileTypeIcon, useGumApp } from './use-gum-app'
 
 const useStyles = createStyles((theme) => ({
   root: {

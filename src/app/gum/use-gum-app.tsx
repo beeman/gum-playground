@@ -4,7 +4,7 @@ import { AnchorWallet, useAnchorWallet } from '@solana/wallet-adapter-react'
 import { Cluster, ConfirmOptions, Connection, PublicKey } from '@solana/web3.js'
 import { IconBuildingBank, IconDeviceGamepad, IconPigMoney, IconQuestionMark, IconUser } from '@tabler/icons-react'
 import React, { createContext, ReactNode, useContext, useEffect, useState } from 'react'
-import { showNotificationError, showNotificationSuccess } from '../../ui/ui-notifications'
+import { showNotificationError, showNotificationSuccess } from '../ui/ui-notifications'
 import { formatOwnerData, gumGetOwnerData } from './gum-helpers'
 import { GumOwnerData, GumUser, Namespace } from './gum-interfaces'
 

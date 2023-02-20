@@ -2,7 +2,7 @@ import { useCreateUser } from '@gumhq/react-sdk'
 import { Button } from '@mantine/core'
 import React from 'react'
 import { UiError } from '../ui/ui-error'
-import { useGumApp } from './lib/use-gum-app'
+import { useGumApp } from './use-gum-app'
 
 export function GumUserCreateButton() {
   const { sdk, owner, refresh } = useGumApp()

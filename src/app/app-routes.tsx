@@ -10,7 +10,7 @@ import { WalletMultiButton } from './ui/wallet-adapter-mantine-ui/wallet-multi-b
 export function AppRoutes() {
   return (
     <Container my="md">
-      <Stack mt={64}>
+      <Stack mt={64} spacing={32}>
         <Paper withBorder sx={{ borderWidth: 4 }} radius="xl" p="xl">
           <Group position="apart" align="center">
             <Box component={Link} to="/" sx={{ height: 48 }}>

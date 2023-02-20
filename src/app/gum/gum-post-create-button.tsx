@@ -1,8 +1,8 @@
 import { Button } from '@mantine/core'
 import React from 'react'
 import { showNotificationError, showNotificationSuccess } from '../ui/ui-notifications'
-import { GumProfile, GumUser } from './lib/gum-interfaces'
-import { useGumApp } from './lib/use-gum-app'
+import { GumProfile, GumUser } from './gum-interfaces'
+import { useGumApp } from './use-gum-app'
 
 export function GumPostCreateButton({ profile, user }: { profile: GumProfile; user: GumUser }) {
   const { createPost, refresh } = useGumApp()

@@ -1,8 +1,8 @@
 import { Button } from '@mantine/core'
 import React from 'react'
 
-import { Namespace } from './lib/gum-interfaces'
-import { GumProfileTypeIcon } from './lib/use-gum-app'
+import { Namespace } from './gum-interfaces'
+import { GumProfileTypeIcon } from './use-gum-app'
 
 export function GumProfileCreateButton({ onClick, type }: { onClick: () => void; type: Namespace }) {
   return (

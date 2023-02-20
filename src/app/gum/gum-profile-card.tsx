@@ -6,7 +6,7 @@ import { LinkAccount } from '../ui/ui-link-explorer'
 import { GumPostCreateButton } from './gum-post-create-button'
 import { GumPostDeleteButton } from './gum-post-delete-button'
 import { GumProfileDeleteButton } from './gum-profile-delete-button'
-import { GumProfile, GumUser } from './lib/gum-interfaces'
+import { GumProfile, GumUser } from './gum-interfaces'
 
 export function GumProfileCard({ profile, user }: { profile: GumProfile; user: GumUser }) {
   return (

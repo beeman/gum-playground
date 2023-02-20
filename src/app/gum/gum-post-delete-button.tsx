@@ -1,8 +1,8 @@
 import { Button } from '@mantine/core'
 import { PublicKey } from '@solana/web3.js'
 import React from 'react'
-import { GumProfile, GumUser } from './lib/gum-interfaces'
-import { useGumApp } from './lib/use-gum-app'
+import { GumProfile, GumUser } from './gum-interfaces'
+import { useGumApp } from './use-gum-app'
 
 export function GumPostDeleteButton({ post, profile, user }: { post: PublicKey; profile: GumProfile; user: GumUser }) {
   const loading = false
