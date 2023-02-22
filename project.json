@@ -5,31 +5,55 @@
   "projectType": "application",
   "targets": {
     "build": {
-      "executor": "@nrwl/vite:build",
+      "executor": "@nrwl/webpack:webpack",
       "outputs": ["{options.outputPath}"],
       "defaultConfiguration": "production",
       "options": {
-        "outputPath": "dist/gum-playground"
+        "compiler": "babel",
+        "outputPath": "dist/gum-playground",
+        "index": "src/index.html",
+        "baseHref": "/",
+        "main": "src/main.tsx",
+        "tsConfig": "tsconfig.app.json",
+        "assets": ["src/favicon.ico", "src/assets"],
+        "styles": ["src/styles.css"],
+        "scripts": [],
+        "isolatedConfig": true,
+        "webpackConfig": "webpack.config.js"
       },
       "configurations": {
         "development": {
-          "mode": "development"
+          "extractLicenses": false,
+          "optimization": false,
+          "sourceMap": true,
+          "vendorChunk": true
         },
         "production": {
-          "mode": "production"
+          "fileReplacements": [
+            {
+              "replace": "src/environments/environment.ts",
+              "with": "src/environments/environment.prod.ts"
+            }
+          ],
+          "optimization": true,
+          "outputHashing": "all",
+          "sourceMap": false,
+          "namedChunks": false,
+          "extractLicenses": true,
+          "vendorChunk": false
         }
       }
     },
     "serve": {
-      "executor": "@nrwl/vite:dev-server",
+      "executor": "@nrwl/webpack:dev-server",
       "defaultConfiguration": "development",
       "options": {
-        "buildTarget": "gum-playground:build"
+        "buildTarget": "gum-playground:build",
+        "hmr": true
       },
       "configurations": {
         "development": {
-          "buildTarget": "gum-playground:build:development",
-          "hmr": true
+          "buildTarget": "gum-playground:build:development"
         },
         "production": {
           "buildTarget": "gum-playground:build:production",
@@ -37,34 +61,25 @@
         }
       }
     },
-    "preview": {
-      "executor": "@nrwl/vite:preview-server",
-      "defaultConfiguration": "development",
-      "options": {
-        "buildTarget": "gum-playground:build"
-      },
-      "configurations": {
-        "development": {
-          "buildTarget": "gum-playground:build:development"
-        },
-        "production": {
-          "buildTarget": "gum-playground:build:production"
-        }
-      }
-    },
-    "test": {
-      "executor": "@nrwl/vite:test",
-      "outputs": ["coverage/gum-playground"],
-      "options": {
-        "passWithNoTests": true,
-        "reportsDirectory": "coverage/gum-playground"
-      }
-    },
     "lint": {
       "executor": "@nrwl/linter:eslint",
       "outputs": ["{options.outputFile}"],
       "options": {
         "lintFilePatterns": ["./src/**/*.{ts,tsx,js,jsx}"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectName}"],
+      "options": {
+        "jestConfig": "jest.config.ts",
+        "passWithNoTests": true
+      },
+      "configurations": {
+        "ci": {
+          "ci": true,
+          "codeCoverage": true
+        }
       }
     }
   },
