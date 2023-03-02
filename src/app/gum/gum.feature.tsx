@@ -8,11 +8,11 @@ import { GumApp } from './gum-app'
 import { GumAppProvider, useGumSDK } from './use-gum-app'
 
 export function GumFeature() {
-  const wallet = useWallet()
-  const { network } = useSolana()
   const { connection } = useConnection()
+  const { network } = useSolana()
+  const wallet = useWallet()
 
-  const sdk = useGumSDK(connection, { commitment: 'confirmed' }, network)
+  const sdk = useGumSDK(connection, { commitment: 'confirmed' }, network.id)
 
   if (wallet.connecting) {
     return (
@@ -20,7 +20,6 @@ export function GumFeature() {
         <Box py={'lg'}>
           <UiLoader />
         </Box>
-        <Title align="center" order={2}></Title>
       </UiCard>
     )
   }

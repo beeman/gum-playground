@@ -62,7 +62,7 @@ export interface GumSDKProfile {
   account: {
     user: PublicKey
     namespace: {
-      [key: string]: any
+      [key: string]: string
     }
   }
 }

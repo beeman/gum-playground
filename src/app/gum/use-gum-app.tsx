@@ -1,9 +1,9 @@
-import { SDK, useGum } from '@gumhq/react-sdk'
+import { SDK } from '@gumhq/react-sdk'
 import { useMantineTheme } from '@mantine/core'
 import { AnchorWallet, useAnchorWallet } from '@solana/wallet-adapter-react'
 import { Cluster, ConfirmOptions, Connection, PublicKey } from '@solana/web3.js'
 import { IconBuildingBank, IconDeviceGamepad, IconPigMoney, IconQuestionMark, IconUser } from '@tabler/icons-react'
-import React, { createContext, ReactNode, useContext, useEffect, useState } from 'react'
+import React, { createContext, ReactNode, useContext, useEffect, useMemo, useState } from 'react'
 import { showNotificationError, showNotificationSuccess } from '../ui/ui-notifications'
 import { formatOwnerData, gumGetOwnerData } from './gum-helpers'
 import { GumOwnerData, GumUser, Namespace } from './gum-interfaces'
@@ -31,6 +31,7 @@ export function GumAppProvider({ children, owner, sdk }: { children: ReactNode; 
   useEffect(() => {
     // Run once on mount
     refresh()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   useEffect(() => {
@@ -147,9 +148,9 @@ export const useGumApp = () => useContext(GumAppContext)
 export const useGumSDK = (connection: Connection, opts: ConfirmOptions, cluster: Cluster) => {
   const anchorWallet = useAnchorWallet() as AnchorWallet
 
-  const sdk = useGum(anchorWallet, connection, opts, cluster)
-
-  return sdk
+  return useMemo(() => {
+    return new SDK(anchorWallet, connection, opts, cluster)
+  }, [anchorWallet, connection, opts, cluster])
 }
 
 export function GumProfileTypeColor({ type }: { type: Namespace | string }): string {

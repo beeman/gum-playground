@@ -1,4 +1,5 @@
 import { Card, createStyles, SimpleGrid, Text, UnstyledButton } from '@mantine/core'
+import { ElementType } from 'react'
 
 import { Link } from 'react-router-dom'
 
@@ -31,7 +32,7 @@ function getColorByIndex(index: number) {
 }
 
 export interface UiDashboardItem {
-  icon: any
+  icon: ElementType<{ color: string; size: number }>
   label: string
   link: string
 }

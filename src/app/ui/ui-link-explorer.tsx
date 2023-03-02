@@ -31,7 +31,7 @@ export function LinkAccount(
 
 export function LinkExplorer({ label, path, value }: { label?: string; path: string; value: string | number }) {
   const { network } = useSolana()
-  const clusterSuffix = network === WalletAdapterNetwork.Mainnet ? '' : `?cluster=${network?.toLowerCase()}`
+  const clusterSuffix = network.id === WalletAdapterNetwork.Mainnet ? '' : `?cluster=${network.id?.toLowerCase()}`
   return (
     <Flex align="center">
       <UiCopyButton text={value.toString()} />

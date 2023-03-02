@@ -89,7 +89,7 @@ export function WalletModal(props: WalletModalProps) {
               <Box key={wallet.adapter.name}>
                 <WalletListItem
                   wallet={wallet}
-                  handleClick={(event: any) => handleWalletClick(event, wallet.adapter.name)}
+                  handleClick={(event: MouseEvent) => handleWalletClick(event, wallet.adapter.name)}
                 />
               </Box>
             ))}
@@ -100,7 +100,7 @@ export function WalletModal(props: WalletModalProps) {
                   <Box key={wallet.adapter.name}>
                     <WalletListItem
                       wallet={wallet}
-                      handleClick={(event: any) => handleWalletClick(event, wallet.adapter.name)}
+                      handleClick={(event: MouseEvent) => handleWalletClick(event, wallet.adapter.name)}
                     />
                   </Box>
                 ))}
@@ -150,7 +150,7 @@ export function WalletModal(props: WalletModalProps) {
                     <Box key={wallet.adapter.name}>
                       <WalletListItem
                         wallet={wallet}
-                        handleClick={(event: any) => handleWalletClick(event, wallet.adapter.name)}
+                        handleClick={(event: MouseEvent) => handleWalletClick(event, wallet.adapter.name)}
                       />
                     </Box>
                   ))}

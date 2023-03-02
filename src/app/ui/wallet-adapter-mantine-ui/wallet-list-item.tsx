@@ -38,7 +38,7 @@ export const WalletListItem: FC<WalletListItemProps> = ({ handleClick, tabIndex,
       icon={<WalletIcon wallet={wallet} />}
       rightSection={wallet.readyState === WalletReadyState.Installed && <span>Detected</span>}
       variant="filled"
-      onClick={(event: any) => handleClick(event)}
+      onClick={handleClick}
     />
   )
 }
