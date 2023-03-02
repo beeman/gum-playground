@@ -1,29 +1,50 @@
-import { Adapter, WalletAdapterNetwork } from '@solana/wallet-adapter-base'
+import { useLocalStorage } from '@mantine/hooks'
+import { WalletAdapterNetwork } from '@solana/wallet-adapter-base'
 import { ConnectionProvider, WalletProvider } from '@solana/wallet-adapter-react'
-import { createContext, ReactNode, useContext } from 'react'
+import { PhantomWalletAdapter, SolflareWalletAdapter } from '@solana/wallet-adapter-wallets'
+import { createContext, ReactNode, useContext, useMemo } from 'react'
 import { WalletModalProvider } from './ui/wallet-adapter-mantine-ui/wallet-modal-provider'
 
-export interface SolanaProviderContext {
-  network: WalletAdapterNetwork
+export interface Network {
+  id: WalletAdapterNetwork
+  name: string
   endpoint: string
+}
+
+export interface SolanaProviderContext {
+  network: Network
+  networks: Network[]
+  endpoint: string
+  setNetwork: (network: Network) => void
 }
 
 const SolanaContext = createContext<SolanaProviderContext>({} as SolanaProviderContext)
 
-export function SolanaProvider({
-  children,
-  endpoint,
-  network,
-  wallets = [],
-}: {
-  children: ReactNode
-  endpoint: string
-  network: WalletAdapterNetwork
-  wallets?: Adapter[]
-}) {
+export function SolanaProvider({ children, networks }: { children: ReactNode; networks: Network[] }) {
+  const [network, setNetwork] = useLocalStorage<Network>({
+    key: 'gum-playground-network',
+    defaultValue: networks[0],
+  })
+
+  const endpoint = useMemo(() => {
+    const found = networks.find((item) => item.id === network.id)
+    return found ? found.endpoint : ''
+  }, [network, networks])
+
+  const wallets = useMemo(
+    () => [
+      // Add more wallets here
+      new SolflareWalletAdapter({ network: network.id }),
+      new PhantomWalletAdapter({ network: network.id }),
+    ],
+    [network.id],
+  )
+
   const value: SolanaProviderContext = {
-    network,
     endpoint,
+    network,
+    networks,
+    setNetwork,
   }
 
   return (

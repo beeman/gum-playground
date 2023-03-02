@@ -1,4 +1,4 @@
-import { Box, Modal } from '@mantine/core'
+import { Modal } from '@mantine/core'
 import type { FC, ReactNode } from 'react'
 import React, { useState } from 'react'
 import { WalletModalContext } from './use-wallet-modal'
